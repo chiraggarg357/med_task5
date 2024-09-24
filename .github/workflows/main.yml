@@ -115,7 +115,7 @@ jobs:
           sudo medusa new . --skip-db
 
           # Update the .env file to connect to the correct PostgreSQL database
-          echo "DATABASE_URL=postgres://medusa:medusa@localhost:5432/medusa_db" | sudo tee .env
+          echo "DATABASE_URL=postgres://medusa:medusa@localhost:5432/medusa" | sudo tee .env
           # Add Redis URL to the .env file
           echo "REDIS_URL=redis://localhost:6379" | sudo tee -a .env
           sudo chown $USER:$USER .env && chmod 644 .env
