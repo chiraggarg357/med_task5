@@ -73,7 +73,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key.pem
           chmod 600 private_key.pem
-          ssh -o "StrictHostKeyChecking=no" -i private_key.pem ubuntu@${EC2_IP} << 'EOF'
+          ssh -o "StrictHostKeyChecking=no" -i private_key.pem -t ubuntu@${EC2_IP} << 'EOF'
             # Retry logic for apt commands
           MAX_TRIES=5
           for i in $(seq 1 $MAX_TRIES); do
