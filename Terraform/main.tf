@@ -41,7 +41,7 @@ resource "aws_security_group_rule" "allow_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["152.58.99.188/32"]  # Replace with your public IP
   security_group_id = aws_security_group.new_security_group.id
 }
 
@@ -50,6 +50,15 @@ resource "aws_security_group_rule" "allow_medusa" {
   from_port         = 9000
   to_port           = 9000
   protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.new_security_group.id
+}
+
+resource "aws_security_group_rule" "allow_all_outbound" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"  # Allows all protocols
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.new_security_group.id
 }
