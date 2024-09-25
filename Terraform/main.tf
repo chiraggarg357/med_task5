@@ -3,9 +3,9 @@ provider "aws" {
 }
 
 resource "aws_instance" "medusa_instance" {
-  ami           = "ami-0522ab6e1ddcc7055"  # Choose an appropriate AMI ID based on your region
+  ami           = "ami-0c2af51e265bd5e0e"  # Choose an appropriate AMI ID based on your region
   instance_type = "t2.medium"
-  key_name      = "ec2final"
+  key_name      = "keyy"
 
   tags = {
     Name = "Medusa-Headless"
