@@ -1,21 +1,21 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "medusa_instance" {
-  ami           = "ami-0c2af51e265bd5e0e"  # Choose an appropriate AMI ID based on your region
-  instance_type = "t2.medium"
-  key_name      = "keyy"
+  ami           = "ami-0e86e20dae9224db8"  # Choose an appropriate AMI ID based on your region
+  instance_type = "t2.micro"
+  key_name      = "task117"
 
   tags = {
-    Name = "Medusa-Headless"
+    Name = "Medusa-task"
   }
 }
 
 resource "aws_security_group" "new_security_group" {
-  name        = "medusa_security_group"
+  name        = "medusa_security_117"
   description = "Allow HTTP, HTTPS, SSH, and Medusa traffic"
-  vpc_id      = "vpc-0e0aaef5aa90ca97c"  # Replace with your VPC ID
+  vpc_id      = "vpc-02aca3c29abc1cd43"  # Replace with your VPC ID
 }
 
 resource "aws_security_group_rule" "allow_http" {
@@ -41,7 +41,7 @@ resource "aws_security_group_rule" "allow_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = ["152.58.99.188/32"]  # Replace with your public IP
+  cidr_blocks       = ["0.0.0.0/0"]  # Replace with your public IP
   security_group_id = aws_security_group.new_security_group.id
 }
 
