@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_instance" "medusa_instance" {
   ami           = "ami-0e86e20dae9224db8"  # Choose an appropriate AMI ID based on your region
-  instance_type = "t2.medium"
+  instance_type = "t2.small"
   key_name      = "task117"
 
   tags = {
